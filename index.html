@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D-Vibez</title>
+  <link rel="icon" href="logo1.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body class="dark-mode">
+  <!-- 🔐 Password Screen -->
+  <div id="password-screen">
+    <h2>Enter Password to Access <br> D-Vibez</h2>
+    <input type="password" id="password-input" placeholder="Enter password" />
+    <button id="submit-password">Unlock 🔓</button>
+    <p id="error-msg" style="color: red;"></p>
+  </div>
+
+  <!-- 🎧 Main Player -->
+  <div class="main-content" style="display: none;">
+    <div class="header">
+      <img src="logo.png" alt="Logo" class="logo" />
+      <h1>D-Vibez</h1>
+      <button id="toggleMode">🌙</button>
+    </div>
+
+    <div class="player" style="position: relative;"> <!-- Add position relative -->
+
+      <div id="song-info" style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
+
+        <!-- 🎵 Song Image Frame -->
+        <img id="song-img" alt="Image" />
+
+        <!-- 🎶 Song Details -->
+        <div id="song-title" style="flex: 1; text-align: left;">
+          <div id="song-name" class="loading-text" style="font-size: 17px; font-weight: bold;" data-text="LOADING">
+            <span id="loading-text" style="margin-left: 30px;">LOADING</span>
+          </div>
+          <div id="singer" style="font-size: 14px;"></div>
+          <div id="movie" style="font-size: 14px;"></div>
+        </div>
+      </div>
+      <audio id="audio" preload="metadata"></audio>
+      <div class="seekbar-container">
+        <input type="range" id="seekBar" min="0" max="100" value="0">
+        <div class="time-container">
+          <span id="current-time">00:00</span>
+          <span id="total-time">00:00</span>
+        </div>
+
+
+
+
+      </div>
+
+
+      <div class="controls">
+        <button id="prev" aria-label="Previous">
+          <img src="icons/back.png" alt="Previous" />
+        </button>
+        <button id="playPause" aria-label="Play or Pause">
+          <img id="playPause-icon" src="icons/play.png" alt="Play/Pause" />
+        </button>
+        <button id="next" aria-label="Next">
+          <img src="icons/forward.png" alt="Next" />
+        </button>
+        <button id="repeat" aria-label="Repeat Mode">
+          <img id="repeat-icon" src="icons/NoRepert.png" alt="Repeat Button" width="30">
+        </button>
+
+
+        <!-- 🎤 Mic Icon Button to Toggle Lyrics -->
+        <button id="toggle-lyrics" style="background: none; border: none; padding: 0; cursor: pointer;">
+          <img src="mic.png" alt="Toggle Lyrics" style="width: 25px; height: 25px;">
+        </button>
+
+        <div id="lyrics" class="lyrics-container">
+          <button id="close-lyrics">✖</button>
+          <p class="bold-text">Select a song to view lyrics</p>
+          <div id="lyrics-text"></div> <!-- ✅ Lyrics go here -->
+
+        </div>
+        
+
+
+        <span id="repeat-status"></span>
+      </div>
+
+
+
+      <div class="volume-container">
+        <label for="volume">🔊</label>
+        <input type="range" id="volume" min="0" max="1" step="0.01" value="1" />
+      </div>
+
+
+      <div id="playlist-container">
+
+
+
+        <!-- 📦 Slide Toggle Button -->
+        <button id="toggle-filter" class="toggle-btn">≡</button> <!-- Initial Hamburger Icon -->
+
+
+        <!-- 📂 Sliding Box from Left -->
+        <div id="library-drawer" class="slide-box-horizontal">
+          <label for="filter-language" class="filter-label">Library :</label>
+
+
+          <div id="filter-container">
+            <div class="filter-box" data-lang="All"><span class="diagonal-text">All</span></div>
+            <div class="filter-box" data-lang="Hindi"><span class="diagonal-text">Hindi</span></div>
+            <div class="filter-box" data-lang="Marathi"><span class="diagonal-text">Marathi</span></div>
+            <div class="filter-box" data-lang="English"><span class="diagonal-text">English</span></div>
+            <div class="filter-box" data-lang="Telugu"><span class="diagonal-text">Telugu</span></div>
+            <div class="filter-box" data-lang="Japanese"><span class="diagonal-text">Japanese</span></div>
+            <div class="filter-box" data-lang="Mixup"><span class="diagonal-text">Mixup</span></div>
+          </div>
+
+        </div>
+
+        <!-- Playlist stays here -->
+        <ul id="playlist"></ul>
+      </div>
+
+
+
+      <!-- Footer with Credit and Music Mention -->
+      <footer>
+        <p style="text-align: center; padding: 1px 0; color: #000000;">
+          D-Vibez By Dhananjay Patil | Clown Music <br> All rights reserved..
+        </p>
+      </footer>
+
+      <script src="lyrics.js"></script>
+      <script src="script.js"></script>
+
+
+
+
+</body>
+
+</html>
